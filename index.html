@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMAX BrandCom V8 Product Catalog</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Semi+Expanded:wght@400;500;600;700;800;900&family=Archivo:wght@400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pmax-blue: #0000ff;
+            --blue: #0000ff;
+            --pmax-azure: #0080ff;
+            --blue-light: #0080ff;
+            --pmax-aqua: #00ffff;
+            --pmax-red: #ff0000;
+            --pmax-vivid-orange: #ff6000;
+            --pmax-orange: #ffa500;
+            --blue-bg: #E8EDFF;
+            --orange: #ff6000;
+            --green: #00994d;
+            --red: #ff0000;
+            --pink: #ff0000;
+            --dark: #1a1a2e;
+            --gray: #6B7280;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --teal: #17A2B8;
+        }
+
+        body {
+            font-family: 'Archivo SemiExpanded', 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            line-height: 1.6;
+        }
+
+        .hero::after {
+          content: '';
+          position: absolute;
+          top: -50px; right: -50px;
+          width: 300px; height: 300px;
+          background: linear-gradient(135deg, rgba(0,128,255,0.15), rgba(0,255,255,0.08));
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          z-index: 0;
+        }
+        .hero::before {
+          content: '';
+          position: absolute;
+          bottom: -30px; left: 10%;
+          width: 200px; height: 200px;
+          background: linear-gradient(135deg, rgba(255,0,0,0.1), rgba(255,96,0,0.08));
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          z-index: 0;
+        }
+        .hero > * { position: relative; z-index: 1; }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, #0000ff 0%, #0000aa 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            opacity: 0.95;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== STATS BAR ========== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            background: var(--white);
+            padding: 40px 20px;
+            gap: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* ========== CONTAINER & SECTION STYLES ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        section > p {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        /* ========== ANALYTICS SECTION ========== */
+        .analytics-section {
+            background: var(--blue-bg);
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .analytics-card {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #E0E8F0;
+        }
+
+        .analytics-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--blue-bg);
+        }
+
+        .analytics-card .kpi-badge {
+            display: inline-block;
+            background: #E0F5E8;
+            color: var(--green);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .analytics-card .kpi-badge.orange {
+            background: #FFF5E0;
+            color: var(--orange);
+        }
+
+        .analytics-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .analytics-stat:last-child { border-bottom: none; }
+
+        .analytics-stat .label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .analytics-stat .value {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .bar-chart-simple {
+            margin: 12px 0;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .bar-row .bar-lbl {
+            width: 100px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 12px;
+        }
+
+        .bar-row .bar-track {
+            flex: 1;
+            height: 24px;
+            background: #F0F0F0;
+            border-radius: 4px;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+
+        .bar-row .bar-fill-blue {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue), var(--blue-light));
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+
+        .bar-row .bar-fill-orange {
+            height: 100%;
+            background: linear-gradient(90deg, var(--orange), var(--pmax-vivid-orange));
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+
+        .bar-row .bar-val {
+            width: 70px;
+            text-align: right;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .analytics-note {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .combo-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .combo-table th {
+            background: var(--blue-bg);
+            color: var(--blue);
+            font-weight: 700;
+            padding: 8px 10px;
+            text-align: left;
+            border: 1px solid #E0E8F0;
+        }
+
+        .combo-table td {
+            padding: 7px 10px;
+            border: 1px solid #E0E8F0;
+            color: var(--dark);
+        }
+
+        .combo-table tr:nth-child(even) {
+            background: #F9FAFC;
+        }
+
+        /* ========== UPGRADE SUMMARY ========== */
+        .upgrade-section {
+            background: var(--white);
+        }
+
+        .status-banner {
+            background: #FFF5E0;
+            border: 1px solid var(--pmax-orange);
+            border-left: 4px solid var(--pmax-vivid-orange);
+            padding: 16px 24px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #7A4500;
+            line-height: 1.6;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #E0E8F0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: var(--blue-bg);
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #F9FAFC;
+        }
+
+        .change-up { color: var(--green); font-weight: 700; }
+        .change-down { color: var(--pmax-vivid-orange); font-weight: 700; }
+        .change-new { color: var(--blue); font-weight: 700; }
+
+        /* ========== SKU CATALOG V1 CSS ========== */
+        .group-section { margin-bottom: 48px; }
+        .group-header {
+            display: flex; align-items: center; gap: 14px;
+            padding: 16px 24px; border-radius: 12px 12px 0 0;
+            color: white; font-weight: 700; font-size: 1.1em;
+        }
+        .group-header .group-icon { font-size: 24px; }
+        .group-header .group-count {
+            background: rgba(255,255,255,0.25); border-radius: 12px;
+            padding: 2px 12px; font-size: 12px; margin-left: auto;
+        }
+        .group-core .group-header { background: linear-gradient(135deg, #00994d 0%, #00cc66 100%); }
+        .group-growth .group-header { background: linear-gradient(135deg, #ff6000 0%, #ffa500 100%); }
+        .group-flagship .group-header { background: linear-gradient(135deg, #cc0000 0%, #ff0000 100%); }
+
+        .v1-sku-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+        .v1-sku-card {
+            background: white; border: 1px solid #E5E7EB; border-top: none;
+            padding: 24px 28px; transition: all 0.2s; cursor: pointer;
+            position: relative;
+        }
+        .v1-sku-card:last-child { border-radius: 0 0 12px 12px; }
+        .v1-sku-card:hover { box-shadow: 0 8px 32px rgba(31,78,121,0.15); z-index: 2; }
+        .v1-sku-card-header { display: flex; align-items: flex-start; gap: 16px; }
+        .v1-sku-code {
+            font-family: 'Courier New', monospace; font-weight: 700; font-size: 13px;
+            background: #E8EDFF; color: #0000ff; padding: 4px 10px;
+            border-radius: 6px; white-space: nowrap; flex-shrink: 0;
+        }
+        .v1-sku-name { font-weight: 600; font-size: 15px; color: #1a1a1a; flex: 1; }
+        .v1-sku-budget {
+            font-size: 12px; font-weight: 700; color: #ff6000;
+            background: #FFF8F0; padding: 4px 10px; border-radius: 6px; white-space: nowrap;
+        }
+        .v1-sku-tags { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+        .v1-tag {
+            font-size: 11px; padding: 3px 10px; border-radius: 12px;
+            font-weight: 600; letter-spacing: 0.3px;
+        }
+        .v1-tag-comp { background: #E8EDFF; color: #000099; }
+        .v1-tag-pass { background: #E0F5E8; color: #006633; }
+        .v1-tag-watch { background: #FFF5E0; color: #ff6000; }
+        .v1-tag-pending { background: #FFE8D0; color: #E65100; }
+        .v1-tag-bu { background: #E8EDFF; color: #0000ff; }
+        .v1-tag-v8 { background: #E8EDFF; color: #0000ff; font-weight: 700; }
+        .v1-tag-margin { background: #E0F5E8; color: #006633; }
+
+        .v1-sku-detail { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid #EEE; }
+        .v1-sku-card.expanded .v1-sku-detail { display: block; }
+        .v1-sku-card .v1-expand-icon {
+            color: #6B7280; font-size: 18px; transition: transform 0.2s; flex-shrink: 0;
+        }
+        .v1-sku-card.expanded .v1-expand-icon { transform: rotate(180deg); }
+
+        .v1-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .v1-detail-block h5 {
+            font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+            color: #0000ff; margin-bottom: 6px; font-weight: 700;
+        }
+        .v1-detail-block p { font-size: 13px; color: #555; line-height: 1.6; }
+        .v1-detail-full { grid-column: 1 / -1; }
+
+        .v1-components-list { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+        .v1-comp-chip {
+            font-size: 11px; background: #F3F4F6; border: 1px solid #E5E7EB;
+            padding: 3px 10px; border-radius: 6px; color: #555; font-family: monospace;
+        }
+        .v1-numbers-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+        .v1-number-chip {
+            font-size: 12px; padding: 6px 12px; background: #E8EDFF;
+            border-radius: 6px; color: #0000ff; font-weight: 600;
+        }
+        .v1-verticals-list { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+        .v1-vertical-chip {
+            font-size: 11px; background: #F0F9FF; border: 1px solid #BAE6FD;
+            padding: 3px 10px; border-radius: 6px; color: #0369A1; font-weight: 500;
+        }
+
+        .v1-collab-banner {
+            background: linear-gradient(135deg, #0000cc 0%, #000077 100%);
+            color: white; text-align: center; padding: 32px;
+            border-radius: 12px; margin-top: 40px;
+        }
+        .v1-collab-banner h3 { font-size: 1.2em; margin-bottom: 8px; }
+        .v1-collab-banner p { opacity: 0.8; font-size: 14px; }
+        .v1-collab-icons { display: flex; justify-content: center; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+        .v1-collab-chip {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 16px; border-radius: 8px; font-size: 13px;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        footer .footer-title {
+            font-size: 18px;
+            font-weight: 700;
+            opacity: 1;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-detail {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-bottom: 4px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            section h2 {
+                font-size: 26px;
+            }
+
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .v1-detail-grid { grid-template-columns: 1fr; }
+            .v1-collab-icons { flex-direction: column; align-items: center; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 22px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 11px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">V8 UPGRADE &#8212; DATA-DRIVEN BUNDLE REDESIGN</div>
+            <h1>PMAX BrandCom Product Catalog &#8212; Bundle SKU V8</h1>
+            <p>This V8 is an next updated from V7 (15/15 QC PASS) using FY2025 historical data (129 projects, 56.5B GP2). Every bundle in V8 validated against real project frequency and GP2 contribution, combined historical data 2025FY and YTD 2026.</p>
+        </div>
+    </section>
+
+    <!-- ========== STATS BAR ========== -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">3 Tiers</div>
+            <div class="stat-label">Core &#183; Growth &#183; Flagship</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">13 SKUs</div>
+            <div class="stat-label">Bundle SKUs (V8)</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">129</div>
+            <div class="stat-label">FY2025 Projects Analyzed</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">56.5B</div>
+            <div class="stat-label">Total GP2 (VND)</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" style="color: var(--green);">15/15 PASS</div>
+            <div class="stat-label">V7 QC Validated</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" style="color: var(--green);">71.5%</div>
+            <div class="stat-label">Productization KPI (&gt;60%)</div>
+        </div>
+    </div>
+
+    <!-- ========== FY2025 DATA ANALYTICS ========== -->
+    <section class="analytics-section">
+        <div class="container">
+            <h2>FY2025 Data Analytics</h2>
+            <p>Data foundation for V8 bundle redesign &#8212; 129 projects, 56.5B GP2 analyzed</p>
+
+            <div class="analytics-grid">
+                <!-- Card 1: Productization KPI -->
+                <div class="analytics-card">
+                    <h3>Productization KPI</h3>
+                    <span class="kpi-badge">ACHIEVED 71.5% (Target: 60%)</span>
+                    <div class="analytics-stat">
+                        <span class="label">Total GP2</span>
+                        <span class="value">56.51B VND</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">Productized (current 2026 codes)</span>
+                        <span class="value">40.40B VND</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">Legacy STPL</span>
+                        <span class="value">16.10B VND</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">Total Projects</span>
+                        <span class="value">129</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">Unique SKUs</span>
+                        <span class="value">15</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Single vs Bundle GP2 Split -->
+                <div class="analytics-card">
+                    <h3>Single vs Bundle GP2 Split</h3>
+                    <div class="bar-chart-simple">
+                        <div class="bar-row">
+                            <span class="bar-lbl">Single (84)</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 40.5%;">40.5%</div>
+                            </div>
+                            <span class="bar-val">22.9B</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-lbl">Bundle (45)</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-orange" style="width: 59.5%;">59.5%</div>
+                            </div>
+                            <span class="bar-val">33.6B</span>
+                        </div>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">Avg GP2 &#8212; Single</span>
+                        <span class="value">272M</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">Avg GP2 &#8212; Bundle</span>
+                        <span class="value">747M</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">Bundle Uplift</span>
+                        <span class="value" style="color: var(--green);">2.7x</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Bundle Size Distribution -->
+                <div class="analytics-card">
+                    <h3>Bundle Size Distribution</h3>
+                    <div class="bar-chart-simple">
+                        <div class="bar-row">
+                            <span class="bar-lbl">2-product</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 58%;">26 proj</div>
+                            </div>
+                            <span class="bar-val">15.7B</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-lbl">3-product</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 24%;">11 proj</div>
+                            </div>
+                            <span class="bar-val">4.4B</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-lbl">4-product</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 13%;">6 proj</div>
+                            </div>
+                            <span class="bar-val">7.8B</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-lbl">5-product</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 5%;">2 proj</div>
+                            </div>
+                            <span class="bar-val">5.7B</span>
+                        </div>
+                    </div>
+                    <p class="analytics-note">82.2% of bundles are 2&#8211;3 SKU combinations</p>
+                </div>
+
+                <!-- Card 4: Top Single SKUs by GP2 -->
+                <div class="analytics-card">
+                    <h3>Top Single SKUs by GP2</h3>
+                    <div class="analytics-stat">
+                        <span class="label">E-MEBR001</span>
+                        <span class="value">5.02B</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">E-MEBR003</span>
+                        <span class="value">4.59B</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">E-MEBR005 (30 proj)</span>
+                        <span class="value">4.17B</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">E-MEBR004</span>
+                        <span class="value">2.38B</span>
+                    </div>
+                    <div class="analytics-stat">
+                        <span class="label">E-CRBR001</span>
+                        <span class="value">2.16B</span>
+                    </div>
+                </div>
+
+                <!-- Card 5: Most Frequent Bundle Combos -->
+                <div class="analytics-card">
+                    <h3>Most Frequent Bundle Combos</h3>
+                    <table class="combo-table">
+                        <thead>
+                            <tr>
+                                <th>Combination</th>
+                                <th>Projects</th>
+                                <th>GP2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Media + Strategy</td><td>5</td><td>1.88B</td></tr>
+                            <tr><td>Creative + Media</td><td>5</td><td>1.92B</td></tr>
+                            <tr><td>Live + Media</td><td>4</td><td>4.44B</td></tr>
+                            <tr><td>KOL + Live</td><td>4</td><td>0.73B</td></tr>
+                            <tr><td>Creative + Influencer + Media + Strategy</td><td>3</td><td>4.58B</td></tr>
+                            <tr><td>Influencer + Live</td><td>3</td><td>2.43B</td></tr>
+                            <tr><td>Creative + KOL + Media</td><td>3</td><td>0.69B</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Card 6: YTD 2026 Bundle Usage -->
+                <div class="analytics-card">
+                    <h3>YTD 2026 Bundle Usage (11 projects)</h3>
+                    <div class="bar-chart-simple">
+                        <div class="bar-row">
+                            <span class="bar-lbl">Brandformance</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 82%;">9 projects (82%)</div>
+                            </div>
+                            <span class="bar-val">9 proj</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-lbl">IMC Lite</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 9%;">1</div>
+                            </div>
+                            <span class="bar-val">1 proj</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-lbl">BF+Media</span>
+                            <div class="bar-track">
+                                <div class="bar-fill-blue" style="width: 9%;">1</div>
+                            </div>
+                            <span class="bar-val">1 proj</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== V7 to V8 UPGRADE SUMMARY ========== -->
+    <section class="upgrade-section container">
+        <h2>V7 &#8594; V8 Upgrade Summary</h2>
+        <p>Data-driven bundle redesign based on FY2025 historical project analysis</p>
+
+        <div class="status-banner">
+            &#9888;&#65039; <strong>Unit Economics not yet included.</strong> Pending verbal alignment with COE Head Hanh Le before proceeding to detailed PR and unit economics registration.
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Dimension</th>
+                    <th>V7</th>
+                    <th>V8</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Bundles</td>
+                    <td>15</td>
+                    <td>13</td>
+                    <td class="change-down">-2</td>
+                </tr>
+                <tr>
+                    <td>2-SKU Bundles</td>
+                    <td>3</td>
+                    <td>6</td>
+                    <td class="change-up">+3</td>
+                </tr>
+                <tr>
+                    <td>3-SKU Bundles</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>Refined</td>
+                </tr>
+                <tr>
+                    <td>4-SKU Bundles</td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td class="change-down">-3</td>
+                </tr>
+                <tr>
+                    <td>5-SKU Bundles</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td class="change-down">-2</td>
+                </tr>
+                <tr>
+                    <td>Match Rate</td>
+                    <td>8 Full + 28 Partial</td>
+                    <td>est. 26 Full + 15 Near</td>
+                    <td class="change-up">Improved</td>
+                </tr>
+                <tr>
+                    <td>Vertical Mapping</td>
+                    <td>Not mapped</td>
+                    <td>Mapped per bundle</td>
+                    <td class="change-new">NEW</td>
+                </tr>
+                <tr>
+                    <td>Strategy Codes</td>
+                    <td>E-STPL (legacy)</td>
+                    <td>E-STBR (current)</td>
+                    <td class="change-new">Updated</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ========== V8 BUNDLE CATALOG &#8212; 13 SKUs ========== -->
+    <section class="container" style="padding-top: 40px;">
+        <div style="text-align:center; margin-bottom:32px;">
+            <h2 style="color: var(--blue); font-size: 1.5em;">V8 Bundle Catalog &#8212; 13 SKUs</h2>
+            <p style="color: var(--gray); font-size: 14px;">Click any SKU card to expand details. 3 Tiers: Core (2-SKU) &#183; Growth (3-SKU) &#183; Flagship (4&#8211;5 SKU)</p>
+        </div>
+
+        <!-- GROUP 1: TIER 1 &#8212; CORE BUNDLES -->
+        <div class="group-section group-core">
+            <div class="group-header">
+                <span class="group-icon">&#9679;</span>
+                <span>Tier 1 &#8212; Core Bundles</span>
+                <span style="font-weight:400; font-size:13px; opacity:0.8;">2-SKU entry bundles &#183; Deal size &gt;200M&#8211;600M VND</span>
+                <span class="group-count">6 SKUs</span>
+            </div>
+            <div class="v1-sku-grid">
+
+                <!-- E-BDBR001 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR001</span>
+                        <span class="v1-sku-name">Performance Duo &#8212; KOL + Live</span>
+                        <span class="v1-sku-budget">&gt;300M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">2 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">74.4% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">S-INBR001</span>
+                                    <span class="v1-comp-chip">E-LSBR001</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">4x FY25</span>
+                                    <span class="v1-number-chip">0.73B GP2</span>
+                                    <span class="v1-number-chip">74.4% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>YTD 2026 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip" style="background:#E0F5E8; color:#006633;">6x YTD26</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--gray); margin-top:6px;">FE Credit · Nam Long ADC · Nippon Paint TikTok · VNPAY TikTok · Đại học Việt Đức · Bayer Bepanthen (partial matches — KOL or Live delivered)</p>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">FMCG</span>
+                                    <span class="v1-vertical-chip">Beauty</span>
+                                    <span class="v1-vertical-chip">F&amp;B</span>
+                                    <span class="v1-vertical-chip">Retail</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR002 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR002</span>
+                        <span class="v1-sku-name">Mid-Market Anchor &#8212; Influencer(T1) + Live</span>
+                        <span class="v1-sku-budget">&gt;600M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">2 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">45.2% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-INBR001</span>
+                                    <span class="v1-comp-chip">E-LSBR001</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">3x FY25</span>
+                                    <span class="v1-number-chip">2.43B GP2</span>
+                                    <span class="v1-number-chip">45.2% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>YTD 2026 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip" style="background:#E0F5E8; color:#006633;">1x YTD26</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--gray); margin-top:6px;">Old Spice JFM 26 Outreach (Win — Influencer+Live+Creative)</p>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">Real Estate</span>
+                                    <span class="v1-vertical-chip">Automotive</span>
+                                    <span class="v1-vertical-chip">Pharma</span>
+                                    <span class="v1-vertical-chip">Insurance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR003 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR003</span>
+                        <span class="v1-sku-name">Strategy Attach &#8212; Media + Strategy</span>
+                        <span class="v1-sku-budget">&gt;200M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">2 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">41.4% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-MEBR005</span>
+                                    <span class="v1-comp-chip">E-STBR003</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">5x FY25</span>
+                                    <span class="v1-number-chip">1.88B GP2</span>
+                                    <span class="v1-number-chip">41.4% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">ALL (mandatory attach)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR004 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR004</span>
+                        <span class="v1-sku-name">Content Amplifier &#8212; Creative + Media</span>
+                        <span class="v1-sku-budget">&gt;200M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">2 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">35.0% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-CRBR003</span>
+                                    <span class="v1-comp-chip">E-MEBR005</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">5x FY25</span>
+                                    <span class="v1-number-chip">1.92B GP2</span>
+                                    <span class="v1-number-chip">35.0% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">Tech</span>
+                                    <span class="v1-vertical-chip">EdTech</span>
+                                    <span class="v1-vertical-chip">B2B</span>
+                                    <span class="v1-vertical-chip">Healthcare</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR005 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR005</span>
+                        <span class="v1-sku-name">Live Commerce &#8212; Live + Media(UC)</span>
+                        <span class="v1-sku-budget">&gt;500M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">2 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">50.0% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-LSBR001</span>
+                                    <span class="v1-comp-chip">E-MEBR003/004</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">4x FY25</span>
+                                    <span class="v1-number-chip">4.44B GP2</span>
+                                    <span class="v1-number-chip">50.0% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">FMCG</span>
+                                    <span class="v1-vertical-chip">Retail</span>
+                                    <span class="v1-vertical-chip">Ecommerce</span>
+                                    <span class="v1-vertical-chip">Home Appliances</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR006 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR006</span>
+                        <span class="v1-sku-name">Influence + Amplify &#8212; KOL + Media</span>
+                        <span class="v1-sku-budget">&gt;300M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">2 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">60.8% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">S-INBR001</span>
+                                    <span class="v1-comp-chip">E-MEBR004/005</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">2x FY25</span>
+                                    <span class="v1-number-chip">1.87B GP2</span>
+                                    <span class="v1-number-chip">60.8% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">FMCG</span>
+                                    <span class="v1-vertical-chip">Beauty</span>
+                                    <span class="v1-vertical-chip">Lifestyle</span>
+                                    <span class="v1-vertical-chip">Sports</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- GROUP 2: TIER 2 &#8212; GROWTH BUNDLES -->
+        <div class="group-section group-growth">
+            <div class="group-header">
+                <span class="group-icon">&#9650;</span>
+                <span>Tier 2 &#8212; Growth Bundles</span>
+                <span style="font-weight:400; font-size:13px; opacity:0.8;">3-SKU growth combinations &#183; Deal size &gt;300M&#8211;500M VND</span>
+                <span class="group-count">4 SKUs</span>
+            </div>
+            <div class="v1-sku-grid">
+
+                <!-- E-BDBR007 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR007</span>
+                        <span class="v1-sku-name">SME Social Starter &#8212; Creative + KOL + Media</span>
+                        <span class="v1-sku-budget">&gt;300M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">3 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">25.3% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-CRBR003</span>
+                                    <span class="v1-comp-chip">S-INBR001</span>
+                                    <span class="v1-comp-chip">E-MEBR005</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">3x FY25</span>
+                                    <span class="v1-number-chip">0.69B GP2</span>
+                                    <span class="v1-number-chip">25.3% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>YTD 2026 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip" style="background:#E0F5E8; color:#006633;">1x YTD26</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--gray); margin-top:6px;">Motul — Creative+KOL+Media (Win, carry-over from FY25)</p>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">SME</span>
+                                    <span class="v1-vertical-chip">D2C</span>
+                                    <span class="v1-vertical-chip">Beauty</span>
+                                    <span class="v1-vertical-chip">F&amp;B</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR008 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR008</span>
+                        <span class="v1-sku-name">Full Funnel Live &#8212; Influencer + Live + Media</span>
+                        <span class="v1-sku-budget">&gt;500M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">3 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-watch">Merges top 2-SKU pairs</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-INBR001/002</span>
+                                    <span class="v1-comp-chip">E-LSBR001</span>
+                                    <span class="v1-comp-chip">E-MEBR003</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">2x FY25</span>
+                                    <span class="v1-number-chip">Merges top 2-SKU pairs</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>YTD 2026 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip" style="background:#E0F5E8; color:#006633;">1x YTD26</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--gray); margin-top:6px;">HPGD TẾT 2026 (Win — Influencer+Live+Media, completed)</p>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">Real Estate</span>
+                                    <span class="v1-vertical-chip">FMCG</span>
+                                    <span class="v1-vertical-chip">Pharma</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR009 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR009</span>
+                        <span class="v1-sku-name">Content Campaign &#8212; Creative + Influencer + Media</span>
+                        <span class="v1-sku-budget">&gt;400M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">3 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">37.1% margin</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-CRBR001/003</span>
+                                    <span class="v1-comp-chip">E-INBR001/002</span>
+                                    <span class="v1-comp-chip">E-MEBR005</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">2x FY25</span>
+                                    <span class="v1-number-chip">1.34B GP2</span>
+                                    <span class="v1-number-chip">37.1% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>YTD 2026 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip" style="background:#E0F5E8; color:#006633;">1x YTD26</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--gray); margin-top:6px;">Genex Fatz Baby Campaign 2026 (Quotation — Creative+Influencer+Media, strategy missing)</p>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">Pharma</span>
+                                    <span class="v1-vertical-chip">FMCG</span>
+                                    <span class="v1-vertical-chip">F&amp;B</span>
+                                    <span class="v1-vertical-chip">Beauty</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR010 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR010</span>
+                        <span class="v1-sku-name">Performance Trio &#8212; KOL + Live + Media</span>
+                        <span class="v1-sku-budget">&gt;400M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">3 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-watch">Upgrade from E-BDBR001</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">S-INBR001</span>
+                                    <span class="v1-comp-chip">E-LSBR001</span>
+                                    <span class="v1-comp-chip">E-MEBR005</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">1x FY25</span>
+                                    <span class="v1-number-chip">Upgrade path from E-BDBR001</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">Beauty</span>
+                                    <span class="v1-vertical-chip">Health</span>
+                                    <span class="v1-vertical-chip">Retail</span>
+                                    <span class="v1-vertical-chip">D2C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- GROUP 3: TIER 3 &#8212; FLAGSHIP BUNDLES -->
+        <div class="group-section group-flagship">
+            <div class="group-header">
+                <span class="group-icon">&#9733;</span>
+                <span>Tier 3 &#8212; Flagship Bundles</span>
+                <span style="font-weight:400; font-size:13px; opacity:0.8;">4&#8211;5 SKU full-funnel &#183; Deal size &gt;700M&#8211;2.5B+ VND</span>
+                <span class="group-count">3 SKUs</span>
+            </div>
+            <div class="v1-sku-grid">
+
+                <!-- E-BDBR011 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR011</span>
+                        <span class="v1-sku-name">IMC Standard &#8212; Strategy + Creative + Media + KOL</span>
+                        <span class="v1-sku-budget">&gt;700M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">4 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-pending">Unit Econ Pending</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-STBR003</span>
+                                    <span class="v1-comp-chip">E-CRBR003</span>
+                                    <span class="v1-comp-chip">E-MEBR003/005</span>
+                                    <span class="v1-comp-chip">S-INBR001 / E-INBR001</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">3x FY25</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--gray); margin-top:6px;">Genex 1.10B · Osotspa-M150 0.58B · HD Bank 0.58B</p>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>YTD 2026 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip" style="background:#E0F5E8; color:#006633;">2x YTD26</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--gray); margin-top:6px;">Genex Fatz Baby 2026 (Quotation — Creative+Influencer+Media) · HD Bank HD Priority IMC (Win — Creative+Media+Influencer+Data)</p>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">FMCG</span>
+                                    <span class="v1-vertical-chip">Finance</span>
+                                    <span class="v1-vertical-chip">Real Estate</span>
+                                    <span class="v1-vertical-chip">Pharma</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR012 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR012</span>
+                        <span class="v1-sku-name">IMC + Live Commerce &#8212; Strategy + Creative + Live + Media</span>
+                        <span class="v1-sku-budget">&gt;900M</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">4 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-margin">56.3% margin</span>
+                        <span class="v1-tag v1-tag-pending">Unit Econ Pending</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-STBR003</span>
+                                    <span class="v1-comp-chip">E-CRBR001/003</span>
+                                    <span class="v1-comp-chip">E-LSBR001</span>
+                                    <span class="v1-comp-chip">E-MEBR003</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">1x FY25</span>
+                                    <span class="v1-number-chip">VAS 1.22B GP2</span>
+                                    <span class="v1-number-chip">56.3% margin</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">Retail</span>
+                                    <span class="v1-vertical-chip">Education</span>
+                                    <span class="v1-vertical-chip">FMCG</span>
+                                    <span class="v1-vertical-chip">Finance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-BDBR013 -->
+                <div class="v1-sku-card" onclick="toggleSku(this)">
+                    <div class="v1-sku-card-header">
+                        <span class="v1-sku-code">E-BDBR013</span>
+                        <span class="v1-sku-name">Full IMC Premium &#8212; All 5 Functions</span>
+                        <span class="v1-sku-budget">&gt;2.5B</span>
+                        <span class="v1-expand-icon">&#9660;</span>
+                    </div>
+                    <div class="v1-sku-tags">
+                        <span class="v1-tag v1-tag-comp">5 components</span>
+                        <span class="v1-tag v1-tag-v8">V8</span>
+                        <span class="v1-tag v1-tag-watch">Highest GP2</span>
+                        <span class="v1-tag v1-tag-pending">Unit Econ Pending</span>
+                    </div>
+                    <div class="v1-sku-detail">
+                        <div class="v1-detail-grid">
+                            <div class="v1-detail-block">
+                                <h5>Composition</h5>
+                                <div class="v1-components-list">
+                                    <span class="v1-comp-chip">E-STBR003-005</span>
+                                    <span class="v1-comp-chip">E-CRBR003</span>
+                                    <span class="v1-comp-chip">E-INBR001</span>
+                                    <span class="v1-comp-chip">E-LSBR001</span>
+                                    <span class="v1-comp-chip">E-MEBR003</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block">
+                                <h5>2025 Evidence</h5>
+                                <div class="v1-numbers-row">
+                                    <span class="v1-number-chip">2x FY25</span>
+                                </div>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Sample Projects</h5>
+                                <p>Osotspa 4.94B, Hoa Phat 0.71B &#8212; Highest GP2 bundle tier</p>
+                            </div>
+                            <div class="v1-detail-block v1-detail-full">
+                                <h5>Target Verticals</h5>
+                                <div class="v1-verticals-list">
+                                    <span class="v1-vertical-chip">FMCG Launches</span>
+                                    <span class="v1-vertical-chip">Conglomerates</span>
+                                    <span class="v1-vertical-chip">MNCs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ========== COLLABORATION BANNER ========== -->
+    <div class="container" style="padding-bottom: 40px;">
+        <div class="v1-collab-banner">
+            <h3>Built with Human Strategy + AI Data Engineering</h3>
+            <p>V8 redesign powered by FY2025 data analysis of 129 projects and 56.5B GP2</p>
+            <div class="v1-collab-icons">
+                <div class="v1-collab-chip">
+                    <span>&#x1F464;</span>
+                    <span><strong>Nga Dao</strong> &#8212; Strategy, market knowledge, bundle architecture, vertical mapping</span>
+                </div>
+                <div class="v1-collab-chip">
+                    <span>&#x1F916;</span>
+                    <span><strong>Claude</strong> &#8212; Data engineering, pattern analysis, match-rate scoring, catalog generation</span>
+                </div>
+            </div>
+            <p style="margin-top:16px; font-size:12px; opacity:0.6;">V7: 15/15 SKUs QC PASS &#8212; Validated by Hanh Le &#8212; Co-founder &amp; Head of COEs, PMAX</p>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p class="footer-title">PMAX BrandCom &#8212; Total Marketing Partner</p>
+        <p>V8 Product Catalog &#183; May 2026 &#183; 13 Bundle SKUs &#183; 3 Tiers &#183; Enterprise Only</p>
+        <p class="footer-detail">Data foundation: FY2025 (129 projects, 56.5B GP2) + YTD 2026 (11 projects)</p>
+        <p class="footer-detail">V7 QC: 15/15 PASS &#8212; Validated by Hanh Le</p>
+        <p class="footer-detail">V8 Upgrade: Pending COE alignment for unit economics</p>
+        <p class="footer-detail" style="margin-top: 12px;">Built with: Nga Dao (strategy) + Claude (data engineering)</p>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        function toggleSku(el) {
+            el.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
